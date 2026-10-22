@@ -1,0 +1,2097 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ALEX CAFÉ | أليكس كافيه</title>
+
+<meta name="description" content="أليكس كافيه - قهوتك المفضلة ومشروباتك المميزة في دار السلام، سوهاج.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap');
+
+:root {
+    --gold: #d6ad60;
+    --gold-light: #f3d89b;
+    --black: #0b0b0b;
+    --dark: #141414;
+    --card: #191919;
+    --text: #f5f1e8;
+    --muted: #aaa49a;
+    --border: rgba(214,173,96,.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: var(--black);
+    color: var(--text);
+    line-height: 1.8;
+}
+
+button, input, textarea, select {
+    font-family: inherit;
+}
+
+button, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: min(1200px, 91%);
+    margin: auto;
+}
+
+.gold {
+    color: var(--gold);
+}
+
+/* NAVBAR */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11,11,11,.96);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(15px);
+}
+
+.navbar {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    font-weight: 800;
+    color: var(--gold);
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.logo small {
+    display: block;
+    font-family: 'Cairo', sans-serif;
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-align: center;
+    color: #fff;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 24px;
+}
+
+.nav-links a {
+    font-size: 13px;
+    color: #ddd;
+    transition: .25s;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cart-btn {
+    background: var(--gold);
+    color: #111;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: 900;
+}
+
+.cart-count {
+    background: #111;
+    color: var(--gold);
+    border-radius: 50%;
+    padding: 1px 7px;
+    margin-right: 5px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    color: var(--gold);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    font-size: 24px;
+    width: 43px;
+    height: 43px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 610px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg, rgba(0,0,0,.55), rgba(0,0,0,.92)),
+        url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=2000&q=90') center/cover;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, #0b0b0b 0%, transparent 35%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 90px 0 110px;
+    max-width: 1200px;
+    width: 91%;
+    margin: auto;
+}
+
+.hero-label {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 22px;
+    display: block;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 8vw, 90px);
+    line-height: 1.2;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+.hero h2 {
+    font-size: clamp(21px, 3vw, 30px);
+    font-weight: 500;
+    color: var(--gold-light);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 540px;
+    color: #d2d2d2;
+    font-size: 15px;
+    margin-bottom: 32px;
+}
+
+.btn-gold {
+    display: inline-block;
+    background: var(--gold);
+    color: #111;
+    border: 1px solid var(--gold);
+    padding: 13px 26px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 900;
+    transition: .3s;
+}
+
+.btn-gold:hover {
+    background: transparent;
+    color: var(--gold);
+}
+
+.btn-outline {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 13px 26px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-right: 10px;
+    transition: .3s;
+}
+
+.btn-outline:hover {
+    background: var(--gold);
+    color: #111;
+}
+
+.hero-bottom {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 48px;
+}
+
+.hero-stat {
+    border-right: 2px solid var(--gold);
+    padding-right: 15px;
+}
+
+.hero-stat strong {
+    display: block;
+    font-size: 19px;
+    color: var(--gold);
+}
+
+.hero-stat span {
+    font-size: 11px;
+    color: #bbb;
+}
+
+/* FEATURES */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--border);
+    margin-top: -1px;
+    background: #101010;
+}
+
+.feature {
+    padding: 28px 15px;
+    text-align: center;
+    border-left: 1px solid var(--border);
+}
+
+.feature:last-child {
+    border-left: none;
+}
+
+.feature-icon {
+    font-size: 29px;
+    margin-bottom: 7px;
+}
+
+.feature h3 {
+    color: var(--gold);
+    font-size: 15px;
+}
+
+.feature p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* SECTIONS */
+
+.section {
+    padding: 90px 0;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.eyebrow {
+    color: var(--gold);
+    letter-spacing: 3px;
+    font-size: 11px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.section-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 5vw, 43px);
+    margin-bottom: 10px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* MENU */
+
+.menu-section {
+    background: #101010;
+}
+
+.menu-toolbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.search-input {
+    flex: 1;
+    min-width: 220px;
+    max-width: 350px;
+    background: #191919;
+    color: white;
+    border: 1px solid #353535;
+    padding: 13px 15px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: var(--gold);
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.cat-btn {
+    background: transparent;
+    border: 1px solid #373737;
+    color: #ccc;
+    padding: 9px 14px;
+    border-radius: 4px;
+    font-size: 12px;
+    transition: .2s;
+}
+
+.cat-btn.active,
+.cat-btn:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: #111;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.product-card {
+    background: var(--card);
+    border: 1px solid #292929;
+    transition: .3s;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 15px 35px rgba(0,0,0,.25);
+}
+
+.product-img {
+    height: 235px;
+    position: relative;
+    overflow: hidden;
+    background: #222;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.product-card:hover .product-img img {
+    transform: scale(1.06);
+}
+
+.product-tag {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    background: var(--gold);
+    color: #111;
+    padding: 5px 12px;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 9px;
+}
+
+.product-title-row h3 {
+    font-size: 17px;
+}
+
+.product-price {
+    color: var(--gold);
+    font-size: 17px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.product-price small {
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.product-info p {
+    color: #aaa;
+    font-size: 12px;
+    min-height: 43px;
+    margin-bottom: 18px;
+}
+
+.add-btn {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    width: 100%;
+    padding: 11px;
+    font-weight: 800;
+    transition: .25s;
+}
+
+.add-btn:hover {
+    background: var(--gold);
+    color: #111;
+}
+
+.no-results {
+    grid-column: 1/-1;
+    text-align: center;
+    padding: 50px 0;
+    color: var(--muted);
+}
+
+/* SPECIAL */
+
+.special {
+    padding: 60px 0;
+}
+
+.special-box {
+    min-height: 300px;
+    border: 1px solid var(--gold);
+    padding: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    background:
+        linear-gradient(90deg, rgba(0,0,0,.35), rgba(0,0,0,.93)),
+        url('https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=1500&q=85') center/cover;
+}
+
+.special-box h2 {
+    font-size: clamp(26px, 4vw, 38px);
+    margin-bottom: 12px;
+}
+
+.special-box p {
+    color: #ccc;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.special-icon {
+    font-size: 90px;
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.about-image {
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+}
+
+.about-image::after {
+    content: "";
+    position: absolute;
+    inset: 15px -15px -15px 15px;
+    border: 1px solid var(--gold);
+    z-index: -1;
+}
+
+.about-text h2 {
+    font-size: clamp(28px, 4vw, 39px);
+    line-height: 1.5;
+    margin: 15px 0;
+}
+
+.about-text p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.about-list {
+    list-style: none;
+}
+
+.about-list li {
+    padding: 9px 0;
+    border-bottom: 1px solid #292929;
+    font-size: 13px;
+}
+
+.about-list li span {
+    color: var(--gold);
+    margin-left: 10px;
+}
+
+/* LOCATION */
+
+.location-section {
+    background: #111;
+}
+
+.location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.location-card {
+    border: 1px solid var(--border);
+    padding: 30px;
+    background: #171717;
+}
+
+.location-card .icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.location-card h3 {
+    color: var(--gold);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.location-card p {
+    color: #bbb;
+    font-size: 14px;
+}
+
+.location-card a {
+    display: inline-block;
+    margin-top: 18px;
+    color: var(--gold);
+    font-size: 13px;
+    border-bottom: 1px solid var(--gold);
+}
+
+/* FOOTER */
+
+footer {
+    background: #080808;
+    border-top: 1px solid var(--border);
+    padding: 55px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 35px;
+}
+
+footer h3 {
+    color: var(--gold);
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+footer p,
+footer a {
+    color: #aaa;
+    font-size: 12px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+footer a:hover {
+    color: var(--gold);
+}
+
+.footer-bottom {
+    border-top: 1px solid #282828;
+    padding-top: 20px;
+    text-align: center;
+    color: #777;
+    font-size: 11px;
+}
+
+/* CART MODAL */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 500;
+    padding: 15px;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal {
+    background: #161616;
+    border: 1px solid var(--gold);
+    width: min(540px, 100%);
+    max-height: 92vh;
+    overflow-y: auto;
+    padding: 25px;
+}
+
+.modal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.modal-head h2 {
+    color: var(--gold);
+    font-size: 22px;
+}
+
+.close-btn {
+    width: 35px;
+    height: 35px;
+    background: #292929;
+    color: white;
+    border: none;
+    font-size: 22px;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid #333;
+}
+
+.cart-item h4 {
+    font-size: 13px;
+}
+
+.cart-item p {
+    color: var(--gold);
+    font-size: 12px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.quantity-controls button {
+    width: 28px;
+    height: 28px;
+    background: #292929;
+    color: var(--gold);
+    border: 1px solid #444;
+}
+
+.quantity-controls .remove {
+    color: #ff7979;
+}
+
+.cart-empty {
+    text-align: center;
+    padding: 30px 0;
+    color: #aaa;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    margin-top: 10px;
+    border-top: 1px solid var(--border);
+    font-size: 19px;
+    font-weight: 900;
+}
+
+.cart-total strong {
+    color: var(--gold);
+}
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.checkout-form h3 {
+    color: var(--gold);
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+.checkout-form input,
+.checkout-form textarea,
+.checkout-form select {
+    width: 100%;
+    padding: 12px;
+    background: #222;
+    color: white;
+    border: 1px solid #393939;
+    outline: none;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.checkout-form input:focus,
+.checkout-form textarea:focus,
+.checkout-form select:focus {
+    border-color: var(--gold);
+}
+
+.checkout-form textarea {
+    resize: vertical;
+    min-height: 75px;
+}
+
+.payment-box {
+    background: #201d15;
+    border: 1px solid var(--border);
+    padding: 15px;
+}
+
+.payment-box h4 {
+    color: var(--gold);
+    margin-bottom: 5px;
+}
+
+.payment-box p {
+    color: #ccc;
+    font-size: 12px;
+}
+
+.copy-number {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: var(--gold);
+    color: #111;
+    border: none;
+    font-weight: 900;
+}
+
+.payment-note {
+    font-size: 11px;
+    color: #aaa;
+}
+
+.checkout-btn {
+    width: 100%;
+    border: none;
+    background: var(--gold);
+    color: #111;
+    padding: 14px;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.checkout-btn:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%, 120px);
+    background: var(--gold);
+    color: #111;
+    padding: 13px 22px;
+    z-index: 1000;
+    font-size: 13px;
+    font-weight: 800;
+    transition: .3s;
+    text-align: center;
+    max-width: 90%;
+}
+
+.toast.show {
+    transform: translate(-50%, 0);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 82px;
+        right: 0;
+        left: 0;
+        background: #111;
+        border-bottom: 1px solid var(--border);
+        padding: 20px 5%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar {
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .hero {
+        min-height: 540px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about-grid {
+        gap: 30px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 580px) {
+    .section {
+        padding: 60px 0;
+    }
+
+    .hero {
+        min-height: 570px;
+        background-position: 55% center;
+    }
+
+    .hero-content {
+        padding: 70px 0;
+    }
+
+    .hero h1 {
+        font-size: 54px;
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
+
+    .hero-bottom {
+        gap: 18px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .feature {
+        border-left: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-img {
+        height: 245px;
+    }
+
+    .menu-toolbar {
+        align-items: stretch;
+    }
+
+    .search-input {
+        max-width: none;
+        width: 100%;
+    }
+
+    .categories {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cat-btn {
+        padding: 10px 5px;
+    }
+
+    .special-box {
+        padding: 25px;
+        min-height: 270px;
+    }
+
+    .special-icon {
+        display: none;
+    }
+
+    .about-grid,
+    .location-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image img {
+        height: 300px;
+    }
+
+    .about-image::after {
+        inset: 10px -8px -10px 8px;
+    }
+
+    .nav-actions {
+        gap: 6px;
+    }
+
+    .cart-btn {
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+
+    .logo {
+        font-size: 19px;
+        letter-spacing: 1px;
+    }
+
+    .logo small {
+        font-size: 8px;
+    }
+
+    .btn-outline,
+    .btn-gold {
+        padding: 11px 16px;
+        font-size: 12px;
+    }
+
+    .modal {
+        padding: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container navbar">
+
+        <a href="#home" class="logo">
+            ALEX CAFÉ
+            <small>COFFEE • TASTE • LUXURY</small>
+        </a>
+
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#menu">المنيو</a></li>
+                <li><a href="#special">عروضنا</a></li>
+                <li><a href="#about">عن الكافيه</a></li>
+                <li><a href="#location">موقعنا</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="cart-btn" id="openCart">
+                🛒 السلة <span class="cart-count" id="cartCount">0</span>
+            </button>
+
+            <button class="menu-toggle" id="menuToggle"
+                    aria-label="فتح القائمة">☰</button>
+        </div>
+
+    </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+    <div class="hero-content">
+
+        <span class="hero-label">WELCOME TO ALEX CAFÉ</span>
+
+        <h1>ALEX <span class="gold">CAFÉ</span></h1>
+
+        <h2>مش مجرد قهوة.. دي حالة مزاجية ☕</h2>
+
+        <p>
+            عيش تجربة مختلفة مع قهوتك المفضلة، ومشروباتنا المميزة،
+            وأجواء صُممت علشان كل لحظة عندنا تكون لها طعم خاص.
+            مستنيينك في دار السلام، سوهاج.
+        </p>
+
+        <a href="#menu" class="btn-gold">اكتشف المنيو ↙</a>
+
+        <a href="#location" class="btn-outline">مكاننا فين؟</a>
+
+        <div class="hero-bottom">
+
+            <div class="hero-stat">
+                <strong>☕ Coffee</strong>
+                <span>قهوة على مزاجك</span>
+            </div>
+
+            <div class="hero-stat">
+                <strong>🧊 Fresh Drinks</strong>
+                <span>انتعاش في كل رشفة</span>
+            </div>
+
+            <div class="hero-stat">
+                <strong>🍰 Desserts</strong>
+                <span>حلاوة تكمل يومك</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+
+<div class="container features">
+
+    <div class="feature">
+        <div class="feature-icon">☕</div>
+        <h3>قهوة بمذاق مميز</h3>
+        <p>اختيارات تناسب عشاق القهوة</p>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">✨</div>
+        <h3>أجواء راقية</h3>
+        <p>مكان للراحة وتغيير المود</p>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">🥤</div>
+        <h3>مشروبات متنوعة</h3>
+        <p>ساخن وبارد وحلويات</p>
+    </div>
+
+</div>
+
+<!-- MENU -->
+
+<section class="section menu-section" id="menu">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">OUR MENU</span>
+            <h2>منيو <span class="gold">أليكس</span></h2>
+            <p>اختار مشروبك المفضل وسيب الباقي علينا ☕</p>
+        </div>
+
+        <div class="menu-toolbar">
+
+            <input
+                type="search"
+                class="search-input"
+                id="searchInput"
+                placeholder="🔎 بتدور على إيه؟"
+                aria-label="البحث في المنيو"
+            >
+
+            <div class="categories" id="categories">
+                <button class="cat-btn active" data-category="all">الكل</button>
+                <button class="cat-btn" data-category="hot">☕ ساخن</button>
+                <button class="cat-btn" data-category="cold">🧊 بارد</button>
+                <button class="cat-btn" data-category="juice">🍹 عصائر</button>
+                <button class="cat-btn" data-category="dessert">🍰 حلويات</button>
+                <button class="cat-btn" data-category="extras">🍪 إضافات</button>
+            </div>
+
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+
+    </div>
+</section>
+
+<!-- SPECIAL OFFER -->
+
+<section class="special" id="special">
+    <div class="container">
+
+        <div class="special-box">
+
+            <div>
+                <span class="eyebrow">ALEX SPECIAL</span>
+                <h2>قعدة رايقة تبدأ من هنا ✨</h2>
+
+                <p>
+                    اطلب قهوتك المفضلة مع قطعة براونيز،
+                    واجعل لحظتك أحلى.
+                </p>
+
+                <button class="btn-gold" id="offerButton">
+                    اطلب عرض أليكس
+                </button>
+            </div>
+
+            <div class="special-icon">☕🍰</div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+    <div class="container about-grid">
+
+        <div class="about-image">
+            <img
+                src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1000&q=85"
+                alt="تحضير القهوة"
+                loading="lazy"
+            >
+        </div>
+
+        <div class="about-text">
+
+            <span class="eyebrow">OUR STORY</span>
+
+            <h2>أهلاً بيك في <span class="gold">أليكس كافيه</span></h2>
+
+            <p>
+                أليكس كافيه هو مكانك لما تحتاج فنجان قهوة يظبط
+                يومك، أو مشروب منعش في يوم حر، أو قطعة حلوى
+                تكمل بيها قعدتك.
+            </p>
+
+            <p>
+                جهزنالك منيو متنوع يجمع بين القهوة الكلاسيكية
+                والمشروبات العصرية والحلويات، علشان تلاقي
+                دايمًا حاجة على ذوقك.
+            </p>
+
+            <ul class="about-list">
+                <li><span>✦</span> قهوة ساخنة ومشروبات متنوعة</li>
+                <li><span>✦</span> آيس كوفي وموهيتو وعصائر</li>
+                <li><span>✦</span> كيك وحلويات وإضافات</li>
+                <li><span>✦</span> سهولة اختيار الطلب وحساب تكلفته</li>
+            </ul>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- LOCATION -->
+
+<section class="section location-section" id="location">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">FIND US</span>
+            <h2>زورنا في <span class="gold">أليكس</span></h2>
+            <p>هنكون مبسوطين بزيارتك ❤️</p>
+        </div>
+
+        <div class="location-grid">
+
+            <div class="location-card">
+                <div class="icon">📍</div>
+                <h3>عنوان الكافيه</h3>
+                <p>
+                    دار السلام، محافظة سوهاج، مصر.
+                    <br>
+                    تحت فرع أمان.
+                </p>
+
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=دار+السلام+سوهاج+فرع+أمان"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    ابحث عن العنوان على الخريطة ↗
+                </a>
+            </div>
+
+            <div class="location-card">
+                <div class="icon">💳</div>
+                <h3>الدفع عبر فودافون كاش</h3>
+                <p>
+                    يمكنك اختيار الدفع عبر فودافون كاش عند تجهيز
+                    الطلب. راجع بيانات التحويل وأكدها مع الكافيه.
+                </p>
+
+                <a href="#menu">اختار مشروبك الآن ↗</a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+                <a href="#home" class="logo">
+                    ALEX CAFÉ
+                    <small>COFFEE • TASTE • LUXURY</small>
+                </a>
+
+                <br><br>
+
+                <p>
+                    قهوتك المفضلة، مشروبك المميز، وقعدتك الرايقة.
+                    أليكس كافيه في دار السلام، سوهاج.
+                </p>
+            </div>
+
+            <div>
+                <h3>روابط سريعة</h3>
+                <div class="footer-links">
+                    <a href="#home">الرئيسية</a>
+                    <a href="#menu">المنيو</a>
+                    <a href="#special">عروضنا</a>
+                    <a href="#about">عن الكافيه</a>
+                </div>
+            </div>
+
+            <div>
+                <h3>تواصل ومعلومات</h3>
+                <div class="footer-links">
+                    <a href="#location">عنواننا</a>
+                    <a href="#location">الدفع عبر فودافون كاش</a>
+                    <p>دار السلام، سوهاج، تحت فرع أمان.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © <span id="year"></span> ALEX CAFÉ — جميع الحقوق محفوظة.
+        </div>
+
+    </div>
+</footer>
+
+<!-- CART -->
+
+<div class="modal-overlay" id="cartModal">
+    <div class="modal" role="dialog" aria-modal="true"
+         aria-labelledby="cartTitle">
+
+        <div class="modal-head">
+            <h2 id="cartTitle">🛒 سلة الطلبات</h2>
+            <button class="close-btn" id="closeCart" aria-label="إغلاق">×</button>
+        </div>
+
+        <div class="cart-items" id="cartItems"></div>
+
+        <div class="cart-total">
+            <span>الإجمالي</span>
+            <strong id="cartTotal">0 جنيه</strong>
+        </div>
+
+        <form class="checkout-form" id="checkoutForm">
+
+            <h3>بيانات الطلب</h3>
+
+            <input
+                type="text"
+                id="customerName"
+                placeholder="الاسم بالكامل"
+                autocomplete="name"
+                required
+            >
+
+            <input
+                type="tel"
+                id="customerPhone"
+                placeholder="رقم الموبايل"
+                autocomplete="tel"
+                required
+            >
+
+            <textarea
+                id="customerAddress"
+                placeholder="عنوان التوصيل أو تفاصيل الاستلام"
+                required
+            ></textarea>
+
+            <label for="paymentMethod" style="font-size:13px">
+                طريقة الدفع
+            </label>
+
+            <select id="paymentMethod" required>
+                <option value="Vodafone Cash">فودافون كاش</option>
+                <option value="Cash">نقدًا عند الاستلام أو في الكافيه</option>
+            </select>
+
+            <div class="payment-box" id="paymentBox">
+
+                <h4>💳 الدفع عبر فودافون كاش</h4>
+
+                <p>رقم التحويل:</p>
+
+                <p id="vodafoneNumber"
+                   style="font-size:21px;font-weight:900;color:#fff;direction:ltr;text-align:right">
+                    01097727165
+                </p>
+
+                <button class="copy-number" type="button" id="copyNumber">
+                    نسخ رقم التحويل
+                </button>
+
+                <br><br>
+
+                <p class="payment-note">
+                    بعد التحويل، احتفظ بإيصال العملية وأرسله للكافيه
+                    عند تأكيد الطلب. لا تدخل الرقم السري للمحفظة
+                    أو رمز التحقق في هذا الموقع.
+                </p>
+
+            </div>
+
+            <p class="payment-note">
+                تنبيه: الموقع لا يتحقق تلقائيًا من وصول الأموال،
+                ولا يؤكد نجاح التحويل. يجب مراجعة التحويل يدويًا.
+            </p>
+
+            <button type="submit" class="checkout-btn" id="checkoutButton">
+                تجهيز الطلب
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+"use strict";
+
+/*
+  إعدادات الكافيه
+  رقم فودافون كاش مخصص لاستقبال المدفوعات.
+  لا تستخدمه باعتباره رقم واتساب إلا إذا كان مسجلًا فعلًا
+  على واتساب ويوافق صاحبه على استقبال الطلبات عليه.
+*/
+
+const VODAFONE_CASH_NUMBER = "01097727165";
+
+/*
+  اترك رقم واتساب فارغًا حتى تضيف رقم واتساب الكافيه الصحيح.
+  يجب أن يتضمن كود الدولة، من دون + أو مسافات.
+  مثال تنسيقي فقط لمصر: 201001234567
+*/
+const CAFE_WHATSAPP = "";
+
+/* قائمة المشروبات والأسعار المقترحة بالجنيه المصري */
+
+const products = [
+    {
+        id: 1,
+        name: "إسبريسو",
+        category: "hot",
+        price: 35,
+        tag: "كلاسيك",
+        description: "قهوة مركزة لعشاق الطعم الأصيل.",
+        image: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 2,
+        name: "دبل إسبريسو",
+        category: "hot",
+        price: 45,
+        tag: "قوي",
+        description: "جرعتان من الإسبريسو لعشاق القهوة القوية.",
+        image: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 3,
+        name: "أمريكانو",
+        category: "hot",
+        price: 40,
+        tag: "مميز",
+        description: "قهوة سوداء بمذاق متوازن.",
+        image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 4,
+        name: "كابتشينو",
+        category: "hot",
+        price: 55,
+        tag: "الأكثر طلبًا",
+        description: "إسبريسو مع الحليب ورغوة ناعمة.",
+        image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 5,
+        name: "لاتيه",
+        category: "hot",
+        price: 60,
+        tag: "ناعم",
+        description: "مزيج متوازن من القهوة والحليب.",
+        image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 6,
+        name: "موكا",
+        category: "hot",
+        price: 65,
+        tag: "شوكولاتة",
+        description: "قهوة مع الشوكولاتة والحليب.",
+        image: "https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 7,
+        name: "هوت شوكليت",
+        category: "hot",
+        price: 55,
+        tag: "شتوي",
+        description: "شوكولاتة ساخنة بطعم غني.",
+        image: "https://images.unsplash.com/photo-1542990253-0b8be7c4c8a8?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 8,
+        name: "شاي",
+        category: "hot",
+        price: 20,
+        tag: "كلاسيك",
+        description: "كوب شاي مضبوط على مزاجك.",
+        image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 9,
+        name: "شاي أخضر",
+        category: "hot",
+        price: 25,
+        tag: "خفيف",
+        description: "شاي أخضر بمذاق هادئ.",
+        image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 10,
+        name: "آيس لاتيه",
+        category: "cold",
+        price: 65,
+        tag: "الأكثر طلبًا",
+        description: "إسبريسو وحليب بارد مع الثلج.",
+        image: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 11,
+        name: "آيس موكا",
+        category: "cold",
+        price: 70,
+        tag: "شوكولاتة",
+        description: "قهوة باردة بالشوكولاتة.",
+        image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 12,
+        name: "فرابتشينو",
+        category: "cold",
+        price: 80,
+        tag: "مميز",
+        description: "مشروب قهوة مثلج بقوام كريمي.",
+        image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 13,
+        name: "آيس كوفي",
+        category: "cold",
+        price: 55,
+        tag: "منعش",
+        description: "قهوة باردة تقدم مع الثلج.",
+        image: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 14,
+        name: "ميلك شيك شوكولاتة",
+        category: "cold",
+        price: 70,
+        tag: "حلو",
+        description: "ميلك شيك كريمي بطعم الشوكولاتة.",
+        image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 15,
+        name: "ميلك شيك فراولة",
+        category: "cold",
+        price: 70,
+        tag: "فاكهي",
+        description: "ميلك شيك بالفراولة.",
+        image: "https://images.unsplash.com/photo-1553787499-6f9133860278?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 16,
+        name: "موهيتو ليمون ونعناع",
+        category: "cold",
+        price: 55,
+        tag: "منعش",
+        description: "ليمون ونعناع وثلج ومشروب غازي.",
+        image: "https://images.unsplash.com/photo-1513558161293-cdaf765edfd7?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 17,
+        name: "موهيتو فراولة",
+        category: "cold",
+        price: 60,
+        tag: "مميز",
+        description: "فراولة ونعناع ولمسة ليمون.",
+        image: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 18,
+        name: "عصير برتقال",
+        category: "juice",
+        price: 40,
+        tag: "طازج",
+        description: "عصير برتقال منعش.",
+        image: "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 19,
+        name: "عصير مانجو",
+        category: "juice",
+        price: 50,
+        tag: "صيفي",
+        description: "عصير مانجو بطعم غني.",
+        image: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 20,
+        name: "عصير فراولة",
+        category: "juice",
+        price: 45,
+        tag: "فاكهي",
+        description: "عصير فراولة منعش.",
+        image: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 21,
+        name: "براونيز شوكولاتة",
+        category: "dessert",
+        price: 50,
+        tag: "حلو",
+        description: "قطعة براونيز بطعم الشوكولاتة.",
+        image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 22,
+        name: "تشيز كيك",
+        category: "dessert",
+        price: 65,
+        tag: "مميز",
+        description: "قطعة تشيز كيك كريمية.",
+        image: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 23,
+        name: "مولتن كيك",
+        category: "dessert",
+        price: 75,
+        tag: "اختيار الشيف",
+        description: "كيك شوكولاتة بقلب سائل.",
+        image: "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 24,
+        name: "كوكيز شوكولاتة",
+        category: "extras",
+        price: 30,
+        tag: "إضافة",
+        description: "كوكيز مع قطع الشوكولاتة.",
+        image: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 25,
+        name: "مياه معدنية",
+        category: "extras",
+        price: 15,
+        tag: "إضافة",
+        description: "زجاجة مياه معدنية.",
+        image: "https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=700&q=80"
+    }
+];
+
+const specialOffer = {
+    id: 100,
+    name: "عرض أليكس: كابتشينو + براونيز",
+    category: "offers",
+    price: 90,
+    description: "كابتشينو مع قطعة براونيز."
+};
+
+let cart = [];
+let currentCategory = "all";
+let searchText = "";
+
+const $ = id => document.getElementById(id);
+
+function money(amount) {
+    return amount.toLocaleString("ar-EG") + " جنيه";
+}
+
+/* عرض المنتجات بأمان */
+
+function renderProducts() {
+    const grid = $("productsGrid");
+    grid.replaceChildren();
+
+    const filtered = products.filter(product => {
+        const categoryMatch =
+            currentCategory === "all" ||
+            product.category === currentCategory;
+
+        const searchMatch =
+            (product.name + " " + product.description)
+            .toLowerCase()
+            .includes(searchText.toLowerCase());
+
+        return categoryMatch && searchMatch;
+    });
+
+    if (!filtered.length) {
+        const empty = document.createElement("div");
+        empty.className = "no-results";
+        empty.textContent = "ملقيناش المشروب ده، جرّب تبحث باسم تاني.";
+        grid.appendChild(empty);
+        return;
+    }
+
+    filtered.forEach(product => {
+        const card = document.createElement("article");
+        card.className = "product-card";
+
+        const imageBox = document.createElement("div");
+        imageBox.className = "product-img";
+
+        const img = document.createElement("img");
+        img.src = product.image;
+        img.alt = product.name;
+        img.loading = "lazy";
+
+        const tag = document.createElement("span");
+        tag.className = "product-tag";
+        tag.textContent = product.tag;
+
+        imageBox.append(img, tag);
+
+        const info = document.createElement("div");
+        info.className = "product-info";
+
+        const row = document.createElement("div");
+        row.className = "product-title-row";
+
+        const title = document.createElement("h3");
+        title.textContent = product.name;
+
+        const price = document.createElement("span");
+        price.className = "product-price";
+        price.textContent = product.price + " ";
+
+        const small = document.createElement("small");
+        small.textContent = "جنيه";
+        price.appendChild(small);
+
+        row.append(title, price);
+
+        const description = document.createElement("p");
+        description.textContent = product.description;
+
+        const addButton = document.createElement("button");
+        addButton.className = "add-btn";
+        addButton.type = "button";
+        addButton.textContent = "+ أضف إلى الطلب";
+
+        addButton.addEventListener("click", () => addToCart(product));
+
+        info.append(row, description, addButton);
+        card.append(imageBox, info);
+        grid.appendChild(card);
+    });
+}
+
+/* الإشعارات */
+
+let toastTimeout;
+
+function toast(message) {
+    const element = $("toast");
+    element.textContent = message;
+    element.classList.add("show");
+
+    clearTimeout(toastTimeout);
+
+    toastTimeout = setTimeout(() => {
+        element.classList.remove("show");
+    }, 2600);
+}
+
+/* السلة */
+
+function addToCart(product) {
+    const existing = cart.find(item => item.id === product.id);
+
+    if (existing) {
+        existing.quantity++;
+    } else {
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            quantity: 1
+        });
+    }
+
+    renderCart();
+    toast("تمت إضافة " + product.name + " ✓");
+}
+
+function addSpecialOffer() {
+    addToCart(specialOffer);
+}
+
+function updateQuantity(id, change) {
+    const item = cart.find(item => item.id === id);
+
+    if (!item) return;
+
+    item.quantity += change;
+
+    if (item.quantity <= 0) {
+        cart = cart.filter(item => item.id !== id);
+    }
+
+    renderCart();
+}
+
+function removeItem(id) {
+    cart = cart.filter(item => item.id !== id);
+    renderCart();
+}
+
+function totalPrice() {
+    return cart.reduce((sum, item) => {
+        return sum + item.price * item.quantity;
+    }, 0);
+}
+
+function totalQuantity() {
+    return cart.reduce((sum, item) => sum + item.quantity, 0);
+}
+
+function renderCart() {
+    const container = $("cartItems");
+    container.replaceChildren();
+
+    $("cartCount").textContent = totalQuantity();
+    $("cartTotal").textContent = money(totalPrice());
+    $("checkoutButton").disabled = cart.length === 0;
+
+    if (!cart.length) {
+        const empty = document.createElement("div");
+        empty.className = "cart-empty";
+        empty.textContent = "لسه ما ضفتش أي حاجة للسلة ☕";
+        container.appendChild(empty);
+        return;
+    }
+
+    cart.forEach(item => {
+        const row = document.createElement("div");
+        row.className = "cart-item";
+
+        const info = document.createElement("div");
+
+        const name = document.createElement("h4");
+        name.textContent = item.name;
+
+        const price = document.createElement("p");
+        price.textContent = money(item.price * item.quantity);
+
+        info.append(name, price);
+
+        const controls = document.createElement("div");
+        controls.className = "quantity-controls";
+
+        const minus = document.createElement("button");
+        minus.type = "button";
+        minus.textContent = "−";
+        minus.setAttribute("aria-label", "تقليل الكمية");
+        minus.addEventListener("click", () => updateQuantity(item.id, -1));
+
+        const quantity = document.createElement("span");
+        quantity.textContent = item.quantity;
+
+        const plus = document.createElement("button");
+        plus.type = "button";
+        plus.textContent = "+";
+        plus.setAttribute("aria-label", "زيادة الكمية");
+        plus.addEventListener("click", () => updateQuantity(item.id, 1));
+
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.className = "remove";
+        remove.textContent = "×";
+        remove.setAttribute("aria-label", "حذف المنتج");
+        remove.addEventListener("click", () => removeItem(item.id));
+
+        controls.append(minus, quantity, plus, remove);
+        row.append(info, controls);
+        container.appendChild(row);
+    });
+}
+
+/* فتح وإغلاق السلة */
+
+function openCart() {
+    $("cartModal").classList.add("show");
+    document.body.style.overflow = "hidden";
+}
+
+function closeCart() {
+    $("cartModal").classList.remove("show");
+    document.body.style.overflow = "";
+}
+
+$("openCart").addEventListener("click", openCart);
+$("closeCart").addEventListener("click", closeCart);
+
+$("cartModal").addEventListener("click", event => {
+    if (event.target === $("cartModal")) closeCart();
+});
+
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closeCart();
+});
+
+/* البحث */
+
+$("searchInput").addEventListener("input", event => {
+    searchText = event.target.value.trim();
+    renderProducts();
+});
+
+/* التصنيفات */
+
+$("categories").addEventListener("click", event => {
+    const button = event.target.closest("[data-category]");
+
+    if (!button) return;
+
+    currentCategory = button.dataset.category;
+
+    document.querySelectorAll(".cat-btn").forEach(item => {
+        item.classList.toggle("active", item === button);
+    });
+
+    renderProducts();
+});
+
+/* العرض */
+
+$("offerButton").addEventListener("click", () => {
+    addSpecialOffer();
+    openCart();
+});
+
+/* رقم الدفع ونسخه */
+
+$("vodafoneNumber").textContent = VODAFONE_CASH_NUMBER;
+
+$("copyNumber").addEventListener("click", async () => {
+    try {
+        await navigator.clipboard.writeText(VODAFONE_CASH_NUMBER);
+        toast("تم نسخ رقم فودافون كاش ✓");
+    } catch {
+        toast("انسخ الرقم يدويًا: " + VODAFONE_CASH_NUMBER);
+    }
+});
+
+/* إظهار تفاصيل طريقة الدفع */
+
+$("paymentMethod").addEventListener("change", () => {
+    $("paymentBox").style.display =
+        $("paymentMethod").value === "Vodafone Cash" ? "block" : "none";
+});
+
+/* تجهيز الطلب */
+
+$("checkoutForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    if (!cart.length) {
+        toast("السلة فارغة، أضف مشروبًا أولًا.");
+        return;
+    }
+
+    const name = $("customerName").value.trim();
+    const phone = $("customerPhone").value.trim();
+    const address = $("customerAddress").value.trim();
+    const payment = $("paymentMethod").value;
+
+    if (!name || !phone || !address) {
+        toast("من فضلك أكمل بيانات الطلب.");
+        return;
+    }
+
+    const orderLines = cart.map(item =>
+        `- ${item.name} × ${item.quantity} = ${item.price * item.quantity} جنيه`
+    ).join("\n");
+
+    const paymentName = payment === "Vodafone Cash"
+        ? "فودافون كاش"
+        : "نقدًا";
+
+    const message = [
+        "☕ طلب جديد - ALEX CAFÉ",
+        "",
+        "الاسم: " + name,
+        "رقم العميل: " + phone,
+        "العنوان/الاستلام: " + address,
+        "طريقة الدفع: " + paymentName,
+        "",
+        "تفاصيل الطلب:",
+        orderLines,
+        "",
+        "الإجمالي: " + totalPrice() + " جنيه",
+        "",
+        "يرجى مراجعة الطلب وتأكيد الدفع والاستلام."
+    ].join("\n");
+
+    /*
+      إذا أضفت رقم واتساب الكافيه، سيُفتح واتساب برسالة الطلب.
+      لا يُرسل الطلب تلقائيًا ولا يُخصم أي مبلغ.
+    */
+
+    if (/^\d{10,15}$/.test(CAFE_WHATSAPP)) {
+        const url =
+            "https://wa.me/" + CAFE_WHATSAPP +
+            "?text=" + encodeURIComponent(message);
+
+        window.open(url, "_blank", "noopener,noreferrer");
+
+        toast("تم تجهيز الطلب. أرسله من واتساب لتأكيده.");
+    } else {
+        /*
+          لا يوجد رقم واتساب مضبوط حاليًا.
+          نعرض ملخص الطلب ليتمكن العميل من مراجعته.
+        */
+        alert(
+            "تم تجهيز طلبك، لكن رقم واتساب الكافيه غير مضبوط بعد.\n\n" +
+            message +
+            "\n\nطريقة الدفع: " + paymentName +
+            (payment === "Vodafone Cash"
+                ? "\nرقم فودافون كاش: " + VODAFONE_CASH_NUMBER
+                : "") +
+            "\n\nيرجى التواصل مع الكافيه لتأكيد الطلب."
+        );
+    }
+});
+
+/* قائمة الهاتف */
+
+$("menuToggle").addEventListener("click", () => {
+    $("navLinks").classList.toggle("open");
+});
+
+document.querySelectorAll("#navLinks a").forEach(link => {
+    link.addEventListener("click", () => {
+        $("navLinks").classList.remove("open");
+    });
+});
+
+/* سنة حقوق النشر */
+
+$("year").textContent = new Date().getFullYear();
+
+/* تشغيل الموقع */
+
+renderProducts();
+renderCart();
+</script>
+
+</body>
+</html>
+```
